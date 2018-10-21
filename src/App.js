@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Header from './componentes/Header/Header'
+import Header from './componentes/Header/Header';
+import Tablero from './componentes/Tablero/Tablero';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
        <Header />
+       <Tablero />
       </div>
     );
   }
