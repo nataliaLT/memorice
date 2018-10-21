@@ -4,7 +4,7 @@ import './Carta.css';
 class Carta extends Component{
     render(){
         return(
-        <div></div>
+        <div className="carta"></div>
         )
     }
 }
