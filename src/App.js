@@ -10,7 +10,8 @@ const getEstadoInicial = () => {
   return{
     baraja,
     cartasSeleccionadas: [],
-    comparando: false
+    comparando: false,
+    intentos:0
   };
 }
 class App extends Component {
@@ -57,10 +58,23 @@ class App extends Component {
           return {...carta, fueAdivinada: true};
         })
       }
-      this.setState({cartasSeleccionadas:[],
+      this.ganaste(baraja);
+      this.setState({
+      cartasSeleccionadas:[],
       baraja,
-      comparando: false})
+      comparando: false
+    })
     }, 1000)
+  }
+  ganaste(baraja){
+    if(baraja.filter((carta)=>!carta.fueAdivinada).length === 0){
+      alert(`Felicitaciones ganaste en ${this.state.intentos} intentos!`)
+    }
+  }
+  reiniciarJuego(){
+    this.setState(
+      getEstadoInicial()
+    );
   }
 }
 

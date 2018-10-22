@@ -5,11 +5,11 @@ class Header extends Component {
     render() {
         return (<header>
             <div className="titulo">Memorice</div>
-            <button className="botonIniciar">
+            <button className="botonIniciar" onClick={this.props.reiniciarJuego}>
                 Reiniciar
             </button>
             <div className="titulo">
-                intentos:
+                intentos:{this.props.intentos}
             </div>
         </header>)
 
