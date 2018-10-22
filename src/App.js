@@ -38,7 +38,29 @@ class App extends Component {
       const cartasSeleccionadas = [...this.state.cartasSeleccionadas, carta];
       this.setState({
         cartasSeleccionadas
-      })
+      });
+      if(cartasSeleccionadas.length === 2){//si escojo dos cartas
+        this.compararCartas(cartasSeleccionadas)//comparo las cartas
+      }
+  }
+  compararCartas(cartasSeleccionadas){
+    this.setState({comparando:true}) //actualizo el estado de mi propiedad comparando
+    setTimeout(()=>{
+      const [primeraOpcion, segundaOpcion] = cartasSeleccionadas;
+      let baraja = this.state.baraja;
+
+      if(primeraOpcion.icono === segundaOpcion){//si elige la misma carta el usuario adivino
+        baraja = baraja.map((carta)=>{
+          if(carta.icono !== primeraOpcion){//en caso de que la carta sea distinta
+            return carta
+          }
+          return {...carta, fueAdivinada: true};
+        })
+      }
+      this.setState({cartasSeleccionadas:[],
+      baraja,
+      comparando: false})
+    }, 1000)
   }
 }
 
