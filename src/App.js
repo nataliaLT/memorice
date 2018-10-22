@@ -25,9 +25,20 @@ class App extends Component {
        <Tablero 
          //crear propiedad baraja
          baraja = {this.state.baraja}
+         cartasSeleccionadas = {this.state.cartasSeleccionadas}
+         seleccionarCarta = {(carta) => this.seleccionarCarta(carta)}
        />
       </div>
     );
+  }
+  seleccionarCarta(carta){
+      if(this.state.comparando || this.state.cartasSeleccionadas.indexOf(carta) > -1 || carta.fueAdivinada){
+        return;
+      }
+      const cartasSeleccionadas = [...this.state.cartasSeleccionadas, carta];
+      this.setState({
+        cartasSeleccionadas
+      })
   }
 }
 
