@@ -9,7 +9,6 @@
     "lodash.shuffle": "^4.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-flipcard": "^0.2.1",
     "react-scripts": "2.0.5"
   },
   "scripts": {
@@ -28,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-flipcard-2": "^0.3.2"
+  }
 }

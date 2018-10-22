@@ -1,5 +1,22 @@
 .carta{
     width: 125px;
     height: 125px;
-    background-color: orange;
+   
+}
+.oculta{
+ width: 125px;
+ height: 125px;
+ background-color:orange;
+}
+.contenido{
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(3, 220, 224);
+}
+.ReactFlipCard{
+    width: 100%;
+    height: 100%;
 }
