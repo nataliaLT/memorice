@@ -8,7 +8,9 @@ import './App.css';
 const getEstadoInicial = () => {
   const baraja = construirBarajas();
   return{
-    baraja
+    baraja,
+    cartasSeleccionadas: [],
+    comparando: false
   };
 }
 class App extends Component {
