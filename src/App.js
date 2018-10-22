@@ -22,7 +22,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Header />
+       <Header intentos ={this.state.intentos}
+       reiniciarJuego={()=> this.reiniciarJuego()}
+        />
        <Tablero 
          //crear propiedad baraja
          baraja = {this.state.baraja}
@@ -50,10 +52,10 @@ class App extends Component {
       const [primeraOpcion, segundaOpcion] = cartasSeleccionadas;
       let baraja = this.state.baraja;
 
-      if(primeraOpcion.icono === segundaOpcion){//si elige la misma carta el usuario adivino
+      if(primeraOpcion.icono === segundaOpcion.icono){//si elige la misma carta el usuario adivino
         baraja = baraja.map((carta)=>{
-          if(carta.icono !== primeraOpcion){//en caso de que la carta sea distinta
-            return carta
+          if(carta.icono !== primeraOpcion.icono){//en caso de que la carta sea distinta
+            return carta;
           }
           return {...carta, fueAdivinada: true};
         })
@@ -62,9 +64,10 @@ class App extends Component {
       this.setState({
       cartasSeleccionadas:[],
       baraja,
-      comparando: false
+      comparando: false,
+      intentos: this.state.intentos +1
     })
-    }, 1000)
+    }, )
   }
   ganaste(baraja){
     if(baraja.filter((carta)=>!carta.fueAdivinada).length === 0){
