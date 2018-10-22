@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import Header from './componentes/Header/Header';
 import Tablero from './componentes/Tablero/Tablero';
+import construirBarajas from './utils/construirBarajas';
 
-import logo from './logo.svg';
 import './App.css';
 
+const getEstadoInicial = () => {
+  const baraja = construirBarajas();
+  return{
+    baraja
+  };
+}
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = getEstadoInicial();
+  }
   render() {
     return (
       <div className="App">
        <Header />
-       <Tablero />
+       <Tablero 
+         //crear propiedad baraja
+         baraja = {this.state.baraja}
+       />
       </div>
     );
   }

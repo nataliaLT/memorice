@@ -4,7 +4,9 @@ import './Carta.css';
 class Carta extends Component{
     render(){
         return(
-        <div className="carta"></div>
+        <div className="carta">
+        <i className={`fa ${this.props.icono} fa-5x`} />
+        </div>
         )
     }
 }
